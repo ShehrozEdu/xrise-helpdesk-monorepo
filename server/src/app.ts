@@ -14,7 +14,12 @@ app.use(helmet());
 app.use(
   cors({
     origin: (origin, callback) => {
-      const allowedOrigins = [env.CLIENT_URL, 'http://localhost:5173', 'http://localhost:5174'];
+       const allowedOrigins = [
+        env.CLIENT_URL.replace(/\/$/, ''),
+        'http://localhost:5173',
+        'http://localhost:5174',
+        'https://xrise-helpdesk-monorepo-client.vercel.app',
+      ];
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
