@@ -1,5 +1,5 @@
 import { User } from '../models/user.model';
-import { LoginInput } from '@helpdesk/shared';
+import { LoginInput } from '../shared';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { env } from '../config/env';

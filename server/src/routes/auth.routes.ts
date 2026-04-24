@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { AuthController } from '../controllers/auth.controller';
 import { validate } from '../middleware/validate';
 import { authenticate } from '../middleware/authenticate';
-import { loginSchema } from '@helpdesk/shared';
+import { loginSchema } from '../shared';
 import { publicRateLimiter } from '../middleware/rateLimiter';
 
 const router = Router();

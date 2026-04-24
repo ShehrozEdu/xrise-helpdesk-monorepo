@@ -11,7 +11,7 @@ import {
   replyToTicketSchema,
   assignTicketSchema,
   ticketQuerySchema,
-} from '@helpdesk/shared';
+} from '../shared';
 
 const router = Router();
 

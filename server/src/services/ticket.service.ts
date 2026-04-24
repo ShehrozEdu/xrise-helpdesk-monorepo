@@ -1,7 +1,7 @@
 import { Ticket } from '../models/ticket.model';
 import { Event } from '../models/event.model';
 import { generateTicketId } from '../utils/ticketId';
-import { CreateTicketInput, TicketQueryInput } from '@helpdesk/shared';
+import { CreateTicketInput, TicketQueryInput } from '../shared';
 import mongoose from 'mongoose';
 import { getIO } from '../socket';
 import { MailService } from './mail.service';

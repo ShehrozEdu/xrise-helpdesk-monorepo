@@ -1,6 +1,6 @@
 import { Server as SocketServer } from 'socket.io';
 import { Server as HttpServer } from 'http';
-import { ServerToClientEvents, ClientToServerEvents } from '@helpdesk/shared';
+import { ServerToClientEvents, ClientToServerEvents } from './shared';
 import { logger } from './config/logger';
 import { env } from './config/env';
 

@@ -10,10 +10,7 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "paths": {
-      "@helpdesk/shared": ["./src/shared/index.ts"],
-      "@helpdesk/shared/*": ["./src/shared/*"]
-    }
+    "paths": {}
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.test.ts"]
