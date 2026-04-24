@@ -81,7 +81,7 @@ export const Dashboard: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {data.items.map((ticket) => (
+                  {data.items.map((ticket: any) => (
                     <tr key={ticket._id} onClick={() => navigate(`/tickets/${ticket._id}`)} style={{ cursor: 'pointer' }}>
                       <td><span style={{ fontFamily: 'monospace', fontWeight: 600 }}>{ticket.ticketId}</span></td>
                       <td><span style={{ maxWidth: '280px', display: 'inline-block', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ticket.subject}</span></td>

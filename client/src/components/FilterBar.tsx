@@ -23,7 +23,7 @@ export const FilterBar: React.FC = () => {
         >
           All
         </button>
-        {TICKET_STATUSES.map((status) => (
+        {TICKET_STATUSES.map((status: string) => (
           <button
             key={status}
             className={`filter-tab ${activeFilters.status === status ? 'active' : ''}`}
@@ -41,7 +41,7 @@ export const FilterBar: React.FC = () => {
         style={{ width: 'auto', minWidth: '130px' }}
       >
         <option value="">All Priorities</option>
-        {TICKET_PRIORITIES.map((p) => (
+        {TICKET_PRIORITIES.map((p: string) => (
           <option key={p} value={p}>
             {p.charAt(0).toUpperCase() + p.slice(1)}
           </option>

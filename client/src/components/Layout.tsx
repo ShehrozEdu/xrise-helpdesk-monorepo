@@ -20,7 +20,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const isAdmin = user?.role === 'admin';
   const initials = user?.name
     ?.split(' ')
-    .map((n) => n[0])
+    .map((n: string) => n[0])
     .join('')
     .toUpperCase()
     .slice(0, 2) || '??';
