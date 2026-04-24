@@ -11,8 +11,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@helpdesk/shared": ["../shared/src/index.ts"],
-      "@helpdesk/shared/*": ["../shared/src/*"]
+      "@helpdesk/shared": ["./src/shared/index.ts"],
+      "@helpdesk/shared/*": ["./src/shared/*"]
     }
   },
   "include": ["src/**/*"],

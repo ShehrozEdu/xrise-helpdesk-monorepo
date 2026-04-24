@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@helpdesk/shared': resolve(__dirname, '../shared/src/index.ts'),
+      '@helpdesk/shared': resolve(__dirname, './src/shared/index.ts'),
     },
   },
   server: {
