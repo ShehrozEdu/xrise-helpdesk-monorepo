@@ -1,62 +1,83 @@
-# Mini Helpdesk - Advanced Ticketing System
+# XRise Helpdesk - Server (API)
 
-A production-ready Helpdesk application built with a scalable **Full-Stack monorepo** architecture. This system provides a seamless experience for customers to submit issues and for agents to resolve them with the assistance of AI and real-time synchronization.
+The backend engine for the XRise Helpdesk system. This is a high-performance, real-time Node.js API built with Express, TypeScript, and MongoDB.
 
-## ✨ Core Features
+## 🚀 Features
 
-### 🏢 Agent & Admin Workspace
-- **Real-time Dashboard**: Synchronized ticket lists that update instantly via WebSockets as new tickets arrive or statuses change.
-- **AI-Powered Assistance**: Generate empathetic and professional draft replies using **Groq AI (Llama 3)**, customized to the ticket's conversation history.
-- **Analytics Engine**: Comprehensive metrics for administrators, including volume trends, priority heatmaps, and status distribution via an interactive dashboard.
-- **Unified Activity Feed**: A complete audit trail (timeline) for every ticket, tracking replies, status changes, and reassignments.
+- **Real-time Engine**: Powered by Socket.io for instant ticket updates and notifications.
+- **AI Integration**: Leverages Groq (Llama 3) to generate intelligent reply drafts.
+- **Secure Auth**: JWT-based authentication with role-based access control (Admin vs. Agent).
+- **Validation**: Strict type-safety using Zod schemas.
+- **Email Service**: Automated notifications via Resend.
+- **Analytics**: Built-in endpoints for ticket volume and performance metrics.
 
-### 🌐 Customer Portal
-- **Ticket Submission**: User-friendly form with priority selection and validation.
-- **Status Tracking**: Publicly accessible status page allowing customers to check updates using their Ticket ID and Email.
-- **Automated Notifications**: Transactional emails for confirmation and reply alerts.
+## 🛠️ Tech Stack
 
-## 🏗️ Architecture Highlights
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Language**: TypeScript
+- **Database**: MongoDB (Mongoose)
+- **Security**: Helmet, Rate Limiting, Bcrypt
+- **Logging**: Pino & Pino-Pretty
 
-- **Monorepo Design**: Unified codebase for Client, Server, and Shared components, ensuring type consistency across the entire stack.
-- **Type-Safe API**: End-to-end TypeScript integration with **Zod** schema validation for all network payloads.
-- **Resilient Data Layer**: MongoDB with **ACID Transactions** for reliable event logging and state updates.
-- **Optimized UI**: React SPA with **Vite**, **TanStack Query** for state management, and **Tailwind-inspired** sleek dark-mode aesthetics.
-
-## 🚀 Getting Started
+## 📦 Getting Started
 
 ### Prerequisites
-- Node.js (v18+)
-- MongoDB (Running locally or via Atlas)
-- Groq API Key (Optional, for AI features)
-- Resend API Key (Optional, for email notifications)
+
+- Node.js 18+
+- MongoDB instance (Local or Atlas)
 
 ### Installation
-1. Clone the repository and install dependencies:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ShehrozEdu/xrise-helpdesk-monorepo.git
+   cd xrise-helpdesk-monorepo
+   ```
+
+2. Install dependencies:
    ```bash
    npm install
    ```
-2. Set up environment variables:
-   - Create a `.env` file in the root directory based on `.env.example`.
-3. Seed the database (Initializes the default users):
+
+3. Configure Environment Variables:
+   Create a `.env` file in the root:
+   ```env
+   PORT=5000
+   MONGODB_URI=your_mongodb_uri
+   JWT_SECRET=your_secret
+   CLIENT_URL=http://localhost:5173
+   GROQ_API_KEY=your_key
+   ```
+
+4. Seed the Database (Initial Admin/Agent):
    ```bash
    npm run seed
    ```
 
-### 🔐 Default Credentials
+5. Start the server:
+   ```bash
+   npm run dev
+   ```
+
+## 🏗️ Project Structure
+
+- `src/controllers`: Request handlers and logic.
+- `src/models`: Mongoose schemas and models.
+- `src/routes`: API route definitions.
+- `src/services`: Business logic (AI, Mail, Tickets).
+- `src/shared`: Localized shared types and validation schemas.
+- `api/index.ts`: Vercel serverless entry point.
+
+## 🔐 Default Credentials
 | Role | Email | Password |
 | :--- | :--- | :--- |
 | **Super Admin** | `admin@xriseai.com` | `AdminPass!` |
 | **Support Agent** | `agent1@xriseai.com` | `Agent1Pass!` |
 
-4. Start the development environment:
-   ```bash
-   npm run dev
-   ```
+## 🌐 Deployment
 
-## 📚 Documentation & Deployment
-For deeper technical details and deployment instructions:
-- [Architecture Documentation](file:///c:/Users/PC/Downloads/XRise%20Assessment/ARCHITECTURE.md)
-- **Deployment**: This project is pre-configured for **Vercel** monorepo deployment with optimized `vercel.json` and entry points. See the Architecture file for configuration details.
+Deploy directly to **Vercel** as a Node.js project.
 
 ---
-Built with ❤️ for XRise AI Assessment.
+Built by [Shehroz](https://github.com/ShehrozEdu)
