@@ -1,7 +1,11 @@
 import pino from 'pino';
 import { env } from './env';
 
-const transport = env.NODE_ENV === 'development' 
+// Disable pino-pretty on Vercel or in production
+const isVercel = !!process.env.VERCEL;
+const isProduction = env.NODE_ENV === 'production';
+
+const transport = (!isVercel && !isProduction && env.NODE_ENV === 'development')
   ? {
       target: 'pino-pretty',
       options: {
@@ -12,6 +16,6 @@ const transport = env.NODE_ENV === 'development'
   : undefined;
 
 export const logger = pino({
-  level: env.NODE_ENV === 'development' ? 'debug' : 'info',
+  level: (isVercel || isProduction) ? 'info' : 'debug',
   transport,
 });
