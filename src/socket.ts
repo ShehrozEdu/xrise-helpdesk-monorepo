@@ -32,7 +32,13 @@ export const initSocket = (httpServer: HttpServer) => {
 
 export const getIO = () => {
   if (!io) {
-    throw new Error('Socket.io not initialized!');
+    logger.warn('Socket.io not initialized! Returning a dummy object (this is normal in serverless environments).');
+    return {
+      emit: () => {},
+      to: () => ({ emit: () => {} }),
+      on: () => {},
+      off: () => {},
+    } as any;
   }
   return io;
 };
