@@ -9,8 +9,8 @@ export class AuthController {
       
       res.cookie('jwt', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'strict',
+        secure: true, // Always true for cross-site cookies
+        sameSite: 'none', // Required for cross-site cookies
         maxAge: 8 * 60 * 60 * 1000, // 8 hours
       });
 
@@ -22,7 +22,12 @@ export class AuthController {
 
   static async logout(req: Request, res: Response, next: NextFunction) {
     try {
-      res.cookie('jwt', '', { httpOnly: true, expires: new Date(0) });
+      res.cookie('jwt', '', { 
+        httpOnly: true, 
+        expires: new Date(0),
+        secure: true,
+        sameSite: 'none',
+      });
       sendResponse(res, 200, true, 'Logged out successfully');
     } catch (error) {
       next(error);
